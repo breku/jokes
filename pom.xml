@@ -15,6 +15,8 @@
 
         <jetty.version>7.0.0.pre5</jetty.version>
         <log4j.version>1.2.17</log4j.version>
+        <mongodb.version>2.12.2</mongodb.version>
+        <spring-data-mongodb.version>1.5.0.RELEASE</spring-data-mongodb.version>
 
     </properties>
 
@@ -45,6 +47,17 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongodb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring-data-mongodb.version}</version>
         </dependency>
 
 
