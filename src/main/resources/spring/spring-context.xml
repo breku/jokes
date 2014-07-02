@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+
+
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--Tell the servlet where to look for annotated methods-->
+    <context:component-scan base-package="com.brekol"/>
+
+
+    <!--Enables many annotations and searches for @Controller annotated methods etc.. -->
+    <context:annotation-config/>
+
+    <!--JSR-303 (Bean validation) support will be detected on classpath and enabled automatically-->
+    <mvc:annotation-driven/>
+
+    <mvc:resources mapping="/favicon.ico" location="/img/favicon.ico" order="0"/>
+    <!--<mvc:resources mapping="/robots.txt" location="/txt/robots.txt" order="0"/>-->
+
+
+</beans>
