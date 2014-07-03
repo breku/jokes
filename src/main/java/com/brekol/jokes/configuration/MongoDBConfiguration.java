@@ -1,8 +1,10 @@
 package com.brekol.jokes.configuration;
 
 import com.mongodb.MongoClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
@@ -15,13 +17,28 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 @Configuration
 public class MongoDBConfiguration {
 
-    private final static String DATABASE_NAME = "jokes-db";
+
+    @Value("${database.name}")
+    private String databaseName;
+
+    @Value("${database.host}")
+    private String host;
+
+    @Value("${database.username}")
+    private String username;
+
+    @Value("${database.password}")
+    private String password;
+
+    @Value("${database.port}")
+    private int port;
+
     private final static String DATABASE_IP = "127.0.0.1";
 
     public
     @Bean
     MongoDbFactory mongoDbFactory() throws Exception {
-        return new SimpleMongoDbFactory(new MongoClient(), DATABASE_NAME);
+        return new SimpleMongoDbFactory(new MongoClient(host, port), databaseName, new UserCredentials(username, password));
     }
 
     public
